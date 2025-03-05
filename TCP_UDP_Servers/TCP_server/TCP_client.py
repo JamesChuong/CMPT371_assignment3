@@ -16,7 +16,7 @@ def main():
     server.sendall(TCP_msg.encode())
     server_response = server.recv(1024)
     end = time.time()
-    print(f"The RTT is {(end-start)*1000:.2f} ms")
+    print(f"The RTT is {(end-start)*1000} ms")
 
 if __name__ == '__main__':
     sys.exit(main())

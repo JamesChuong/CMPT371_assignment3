@@ -5,9 +5,10 @@ import time
 PORT = 53444
 HOST = '127.0.0.1'
 
-UDP_MSG = "Hello UDP"
 
 def main():
+
+    UDP_MSG = "Hello UDP"
 
     server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
@@ -16,7 +17,7 @@ def main():
     server_response, _ = server.recvfrom(1024)
     end = time.time()
 
-    print(f"The RTT is {(end-start)*1000:.2f} ms")
+    print(f"The RTT is {(end-start)*1000} ms")
 
 if __name__ == '__main__':
     sys.exit(main())
