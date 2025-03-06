@@ -1,0 +1,4 @@
+Part 1: Sending a single message
+The RTT is 0.3788471221923828 ms
+Part 2: Sending 1000 messages
+The RTT is 31.97455406188965 ms

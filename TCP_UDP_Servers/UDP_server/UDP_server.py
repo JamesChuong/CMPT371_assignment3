@@ -1,7 +1,7 @@
 import socket
 import sys
 
-PORT = 53444
+PORT = 53333
 HOST = "127.0.0.1"
 
 def main():
@@ -14,6 +14,11 @@ def main():
 
         msg, client = UDP_Socket.recvfrom(1024)
         UDP_Socket.sendto(UDP_MSG.encode(), client)
+        print(msg)
+        if msg.decode() == '1':
+            print("Server and client terminated")
+            break
+
 
 if __name__ == '__main__':
     sys.exit(main())
