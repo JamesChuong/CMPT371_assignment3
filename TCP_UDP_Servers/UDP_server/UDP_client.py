@@ -8,32 +8,27 @@ HOST = '127.0.0.1'
 
 def main():
 
-    f = open("UDP_results.txt", "w")
-
     UDP_MSG = "Hello UDP"
     server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-    # f.write("UDP Part 1: Sending a single message\n")
-    #
-    # start = time.time()
+    # start = time.perf_counter_ns()
     # server.sendto(UDP_MSG.encode(), (HOST, PORT))
     # server_response, _ = server.recvfrom(1024)
-    # end = time.time()
+    # end = time.perf_counter_ns()
     #
-    # f.write(f"The RTT is {(end-start)*1000} ms\n")
+    # print(f"The RTT is {(end-start)} nanoseconds")
 
-    f.write("UDP Part 2: Sending 1000 messages\n")
 
-    start = time.time()
+    start = time.perf_counter_ns()
 
     for i in range(1000):
 
         server.sendto(UDP_MSG.encode(), (HOST, PORT))
         server_response, _ = server.recvfrom(1024)
 
-    end = time.time()
+    end = time.perf_counter_ns()
 
-    f.write(f"The RTT is {(end-start)*1000} ms\n")
+    print(f"The total time is {(end-start)} nanoseconds")
 
     kill_msg = '1'
     server.sendto(kill_msg.encode(), (HOST, PORT))
